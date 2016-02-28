@@ -26,6 +26,8 @@
             android:textStyle="bold" />
 
 
+
+
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />
