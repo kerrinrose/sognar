@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -244,10 +244,33 @@ public class MainActivity extends AppCompatActivity {
             for (EntityAnnotation label : labels) {
                 message += String.format("%.3f: %s", label.getScore(), label.getDescription());
                 message += "\n";
+
+
+
+                String desc = label.getDescription();
+
+                Log.d("ye", desc);
+
+                if (desc.equals("water") || desc.equals("bottled water")) {
+
+                    Log.d("true","it water");
+                    return message;
+                }
+
+                else {
+
+                    Log.d("wat", "water you doing");
+                }
+
+
             }
-        } else {
+
+        }
+         else {
             message += "nothing";
         }
+
+
 
         return message;
     }
