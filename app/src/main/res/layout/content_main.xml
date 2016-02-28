@@ -35,7 +35,7 @@
             <GridView
                 android:id="@+id/gridview"
                 android:layout_width="wrap_content"
-                android:layout_height="248dp"
+                android:layout_height="548dp"
                 android:columnWidth="60dp"
                 android:numColumns="auto_fit"
                 android:verticalSpacing="50dp"
@@ -44,7 +44,7 @@
                 android:gravity="center"
                 android:clickable="false"
                 android:focusableInTouchMode="true"
-                android:layout_weight="14.57" />
+                android:layout_weight="19.14" />
 
         </LinearLayout>
     </ScrollView>

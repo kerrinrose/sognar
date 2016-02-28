@@ -147,6 +147,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void uploadImage(Uri uri) {
+
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+
+        gridview.setVisibility(View.INVISIBLE);
+
         if (uri != null) {
             try {
                 // scale the image to 800px to save on bandwidth
@@ -258,11 +263,13 @@ public class MainActivity extends AppCompatActivity {
     private String convertResponseToString(BatchAnnotateImagesResponse response) {
         String message = "I found these things:\n\n";
 
+        int count = 0;
+
         List<EntityAnnotation> labels = response.getResponses().get(0).getLabelAnnotations();
         if (labels != null) {
             for (EntityAnnotation label : labels) {
-                message += String.format("%.3f: %s", label.getScore(), label.getDescription());
-                message += "\n";
+//                message += String.format("%.3f: %s", label.getScore(), label.getDescription());
+//                message += "\n";
 
 
 
@@ -270,15 +277,14 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d("ye", desc);
 
-                if (desc.equals("water") || desc.equals("bottled water")) {
+                if (desc.equals("cat") || desc.equals("chocolate") || desc.equals("dog") || desc.equals("skateboard") || desc.equals("sunglasses") || desc.equals("train") || desc.equals("tree") || desc.equals("snow") ) {
 
-                    Log.d("true","it water");
-                    return message;
+                   count++;
                 }
 
                 else {
 
-                    Log.d("wat", "water you doing");
+
                 }
 
 
@@ -287,6 +293,17 @@ public class MainActivity extends AppCompatActivity {
         }
          else {
             message += "nothing";
+        }
+
+        if(count == 0) {
+
+            message += "this item is not gnarly";
+
+        }
+
+        else {
+
+            message += "this item is gnarly!!!!";
         }
 
 
@@ -322,7 +339,7 @@ public class MainActivity extends AppCompatActivity {
             if (convertView == null) {
                 // if it's not recycled, initialize some attributes
                 imageView = new ImageView(mContext);
-                imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+                imageView.setLayoutParams(new GridView.LayoutParams(250, 250));
                 imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 imageView.setPadding(8, 8, 8, 8);
             } else {
