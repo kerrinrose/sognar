@@ -46,7 +46,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String CLOUD_VISION_API_KEY = "AIzaSyAA7kOqex4Ti2gGAtH6XEZrFYl04JPR0io";
+    private static final String CLOUD_VISION_API_KEY = """;
     public static final String FILE_NAME = "temp.jpg";
 
     private static final String TAG = MainActivity.class.getSimpleName();
